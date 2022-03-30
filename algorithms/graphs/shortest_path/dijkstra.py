@@ -1,28 +1,22 @@
 import math
 import heapq
+import typing
+from collections import defaultdict
+import networkx as nx
 
 
-def dijkstra_adj_list(
-    n: int, adj_list: list[list[tuple[int, int]]], src: int, target: int
-) -> list[int]:
-    assert n == len(adj_list), "The Adj List is incomplete"
-    assert 1 <= src <= n, "The Source node is out of bounds"
-    assert 1 <= target <= n, "The Target node is out of bounds"
+def dijkstra(graph: nx.Graph, src: typing.Any, target: typing.Any) -> list:
+    print(graph.nodes)
+    assert src in graph.nodes, "Source Is Not In Graph"
+    assert target in graph.nodes, f"Target Is Not In Graph"
 
-    for node in range(0, n):
-        for neighbor, weight in adj_list[node]:
-            assert (
-                1 <= neighbor <= n
-            ), "The Adj List contains node(s) which is / are out of bounds"
-            assert 0 <= weight, "Dijkstra Cannot Handle Negative Weights"
+    for (u, v, weight) in graph.edges.data("weight"):
+        assert weight is not None, "Edge Weight Cannot Be None"
+        assert 0 <= int(weight), "Dijkstra Cannot Handle Negative Weights"
 
-    # 0 based indexing
-    src -= 1
-    target -= 1
-
-    seen = [False for _ in range(n)]
-    parent = [-1 for _ in range(n)]
-    dist = [math.inf for _ in range(n)]
+    seen = defaultdict(bool)
+    dist = defaultdict(lambda: math.inf)
+    parent = defaultdict(lambda: -1)
 
     dist[src] = 0
     pqueue = [(dist[src], src)]
@@ -37,8 +31,8 @@ def dijkstra_adj_list(
         if curr_node == target:
             break
 
-        for _neighbor, weight in adj_list[curr_node]:
-            neighbor = _neighbor - 1
+        for neighbor, _info in graph.adj[curr_node].items():
+            weight = _info["weight"]
             if dist[neighbor] > curr_dist + weight:
                 dist[neighbor] = dist[curr_node] + weight
                 parent[neighbor] = curr_node
@@ -49,7 +43,7 @@ def dijkstra_adj_list(
     path = []
     curr_node = target
     while parent[curr_node] != -1:
-        path.append(curr_node + 1)
+        path.append(curr_node)
         curr_node = parent[curr_node]
-    path.append(src + 1)
+    path.append(src)
     return path[::-1]
