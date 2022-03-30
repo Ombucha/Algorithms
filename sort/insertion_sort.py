@@ -1,13 +1,14 @@
 import copy
 
 def insertion_sort_iterative(array: list[float]) -> list[float]:
-    for index, key in enumerate(array):
+    _array = copy.copy(array)
+    for index, key in enumerate(_array):
         _index = index - 1
-        while _index > -1 and array[_index] > key:
-            array[_index + 1] = array[_index]
+        while _index > -1 and _array[_index] > key:
+            _array[_index + 1] = _array[_index]
             _index -= 1
-        array[_index + 1] = key
-    return array
+        _array[_index + 1] = key
+    return _array
 
 def insertion_sort_recursive(array: list[float], length: int = None) -> list[float]:
     _array = copy.copy(array)
