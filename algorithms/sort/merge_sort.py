@@ -9,8 +9,9 @@ def merge(array_1: list[float], array_2: list[float]) -> list[float]:
         return [array_1[0]] + merge(array_1[1:], array_2)
     return [array_2[0]] + merge(array_1, array_2[1:])
 
-def merge_sort(array: list[float]) -> list[float]:
+def merge_sort_recursive(array: list[float]) -> list[float]:
     length = len(array)
     if length == 1:
         return array
-    return merge(merge_sort(array[:math.floor(length / 2)]), merge_sort(array[math.floor(length / 2):]))
+    array = merge(merge_sort_recursive(array[:math.floor(length / 2)]), merge_sort_recursive(array[math.floor(length / 2):]))
+    return array
