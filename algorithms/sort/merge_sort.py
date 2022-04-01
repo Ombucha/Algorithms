@@ -34,16 +34,16 @@ def merge_sort_iterative(array: list[float]) -> list[float]:
     
     _array = copy.copy(array)
     width = 1
-	length = len(_array)										
-	while width < length:
-		left = 0
-		while left < length:
-			right = min(left + (width * 2 - 1), length - 1)		
-			middle = min(left + width - 1, length - 1)
-			_array = merge(_array, left, middle, right)
-			left += width * 2
-		width *= 2
-	return _array
+    length = len(_array)										
+    while width < length:
+        left = 0
+        while left < length:
+            right = min(left + (width * 2 - 1), length - 1)		
+            middle = min(left + width - 1, length - 1)
+            _array = merge(_array, left, middle, right)
+            left += width * 2
+        width *= 2
+    return _array
 
 def merge_sort_recursive(array: list[float]) -> list[float]:
     
