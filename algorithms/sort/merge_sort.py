@@ -2,7 +2,7 @@ import copy
 import math
 
 def merge_sort_iterative(array: list[float]) -> list[float]:
-    
+
     def merge(array, left, middle, right):
         _array = copy.copy(array)
         value = middle - left + 1
@@ -31,14 +31,14 @@ def merge_sort_iterative(array: list[float]) -> list[float]:
             _index += 1
             __index += 1
         return _array
-    
+
     _array = copy.copy(array)
     width = 1
-    length = len(_array)										
+    length = len(_array)
     while width < length:
         left = 0
         while left < length:
-            right = min(left + (width * 2 - 1), length - 1)		
+            right = min(left + (width * 2 - 1), length - 1)
             middle = min(left + width - 1, length - 1)
             _array = merge(_array, left, middle, right)
             left += width * 2
@@ -46,7 +46,7 @@ def merge_sort_iterative(array: list[float]) -> list[float]:
     return _array
 
 def merge_sort_recursive(array: list[float]) -> list[float]:
-    
+
     def merge(array_1: list[float], array_2: list[float]) -> list[float]:
         if len(array_1) == 0:
             return array_2
@@ -55,7 +55,7 @@ def merge_sort_recursive(array: list[float]) -> list[float]:
         if array_1[0] < array_2[0]:
             return [array_1[0]] + merge(array_1[1:], array_2)
         return [array_2[0]] + merge(array_1, array_2[1:])
-    
+
     length = len(array)
     if length == 1:
         return array
