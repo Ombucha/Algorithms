@@ -1,16 +1,16 @@
 import math
 import heapq
 import typing
-from collections import defaultdict
 import networkx as nx
 
+from collections import defaultdict
 
 def dijkstra(graph: nx.Graph, src: typing.Any, target: typing.Any) -> list:
     print(graph.nodes)
     assert src in graph.nodes, "Source Is Not In Graph"
-    assert target in graph.nodes, f"Target Is Not In Graph"
+    assert target in graph.nodes, "Target Is Not In Graph"
 
-    for (u, v, weight) in graph.edges.data("weight"):
+    for (vertex_1, vertex_2, weight) in graph.edges.data("weight"):
         assert weight is not None, "Edge Weight Cannot Be None"
         assert 0 <= int(weight), "Dijkstra Cannot Handle Negative Weights"
 
