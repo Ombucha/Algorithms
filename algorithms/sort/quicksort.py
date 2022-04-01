@@ -10,7 +10,7 @@ def partition(array: list[float], low: int, high: int) -> int:
     array[_pivot + 1], array[high] = array[high], array[_pivot + 1]
     return _pivot + 1
 
-def quicksort_iterative(array, low, high):
+def quicksort_iterative(array: list[float], low: int, high: int) -> list[float]:
     _array = copy.copy(array)
     size = high - low + 1
     stack = [0] * (size)
