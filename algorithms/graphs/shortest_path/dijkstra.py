@@ -1,9 +1,10 @@
 import math
 import heapq
 import typing
-import networkx as nx
 
 from collections import defaultdict
+
+import networkx as nx
 
 def dijkstra(graph: nx.Graph, src: typing.Any, target: typing.Any) -> list:
     print(graph.nodes)
