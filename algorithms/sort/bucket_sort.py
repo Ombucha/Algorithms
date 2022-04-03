@@ -1,5 +1,3 @@
-import math
-
 def next_sort(array: list[float]) -> list[float]:
     for index, key in enumerate(array):
         _index = index - 1
@@ -15,10 +13,10 @@ def bucket_sort(array: list[float], number: int = None) -> list[float]:
     buckets = [[] for _ in range(number)]
     maximum = max(array)
     for element in array:
-        buckets[math.floor((number * element) / maximum) - 1].append(element)
+        buckets[int(number * element) // (maximum + 1)].append(element)
     for index in range(number):
         next_sort(buckets[index])
     output = []
-    for index in range(number):
-        output += buckets[index]
+    for element in buckets:
+        output += element
     return output
