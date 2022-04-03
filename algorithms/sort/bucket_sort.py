@@ -14,8 +14,8 @@ def bucket_sort(array: list[float], number: int = None) -> list[float]:
         number = len(array)
     buckets = [[] for _ in range(number)]
     maximum = max(array)
-    for index in range(len(array)):
-        buckets[math.floor((number * array[index]) / maximum) - 1].append(array[index])
+    for element in array:
+        buckets[math.floor((number * element) / maximum) - 1].append(element)
     for index in range(number):
         next_sort(buckets[index])
     output = []
