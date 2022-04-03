@@ -1,10 +1,12 @@
+import copy
 import random
 
-def is_sorted(data: list[float]) -> bool:
-    boolean = all(index <= _index for index, _index in zip(data, data[1:]))
+def is_sorted(array: list[float]) -> bool:
+    boolean = all(index <= _index for index, _index in zip(array, array[1:]))
     return boolean
 
-def bogosort(data: list[float]) -> list[float]:
-    while not is_sorted(data):
-        random.shuffle(data)
-    return data
+def bogosort(array: list[float]) -> list[float]:
+    _array = copy.copy(array)
+    while not is_sorted(_array):
+        random.shuffle(_array)
+    return _array
