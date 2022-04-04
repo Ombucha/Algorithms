@@ -6,7 +6,7 @@ def selection_sort_iterative(array: list[float]) -> list[float]:
         minimum = index
         for _index in range(index + 1, len(_array)):
             if _array[minimum] > _array[_index]:
-                minimum = _index      
+                minimum = _index
         _array[index], _array[minimum] = _array[minimum], _array[index]
     return _array
 
