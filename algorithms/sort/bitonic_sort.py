@@ -4,7 +4,7 @@ import typing
 def bitonic_sort_recursive(array: list[float], low: int = 0, length: int = None, direction: typing.Literal[0, 1] = 1) -> list[float]:
 
     def compare(array: list[float], left: int, right: int, direction: typing.Literal[0, 1]) -> None:
-        if (direction == 1 and array[left] > arrat[right]) or (direction == 0 and array[left] < array[right]):
+        if (direction == 1 and array[left] > array[right]) or (direction == 0 and array[left] < array[right]):
             array[left], array[right] = array[right], array[left]
 
     def merge(array: list[float], low: int, length: int, direction: typing.Literal[0, 1]) -> list[float]:
