@@ -1,7 +1,9 @@
+import copy
+
 def comb_sort(array: list[float], shrink: float = 1.3) -> list[float]:
     length = len(array)
     _gap = length
-    output = list(array)
+    _array = copy.copy(array)
     is_sorted = False
     while not is_sorted:
         _gap /= shrink
@@ -11,7 +13,7 @@ def comb_sort(array: list[float], shrink: float = 1.3) -> list[float]:
             gap = 1
         for index in range(length - gap):
             __gap = gap + index
-            if output[index] > output[__gap]:
-                output[index], output[__gap] = output[__gap], output[index]
+            if _array[index] > _array[__gap]:
+                _array[index], _array[__gap] = _array[__gap], _array[index]
                 is_sorted = False
-    return output
+    return _array
