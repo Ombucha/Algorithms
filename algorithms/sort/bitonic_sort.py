@@ -3,13 +3,16 @@ import typing
 
 def bitonic_sort_recursive(array: list[float], low: int = 0, length: int = None, direction: typing.Literal[0, 1] = 1) -> list[float]:
 
+    def compate(array: list[float], left: int, right: int, direction: typing.Literal[0, 1]) -> None:
+        if (direction == 1 and array[left] > a[right]) or (direction == 0 and array[left] < array[right]):
+            array[left], array[right] = array[right], array[left]
+
     def merge(array: list[float], low: int, length: int, direction: typing.Literal[0, 1]) -> list[float]:
         _array = copy.copy(array)
         if length > 1:
             _length = length // 2
             for index in range(low , low + _length):
-                if (direction == 1 and _array[index] > _array[index + _length]) or (direction == 0 and _array[index] < _array[index + _length]):
-                    _array[index], _array[index + _length] = _array[index + _length], _array[index]
+                compare(array, index, index + _length, direction)
             _array = merge(_array, low, _length, direction)
             _array = merge(_array, low + _length, _length, direction)
         return _array
