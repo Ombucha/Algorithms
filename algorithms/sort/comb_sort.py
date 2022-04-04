@@ -9,9 +9,9 @@ def comb_sort(array: list[float], shrink: float = 1.3) -> list[float]:
         if gap <= 1:
             is_sorted = True
             gap = 1
-        for i in range(length - gap):
-            sm = gap + i
-            if output[i] > output[sm]:
-                output[i], output[sm] = output[sm], output[i]
+        for index in range(length - gap):
+            __gap = gap + index
+            if output[index] > output[__gap]:
+                output[index], output[__gap] = output[__gap], output[index]
                 is_sorted = False
     return output
