@@ -1,4 +1,4 @@
-def collatz_sequence_iterative(number: int) -> int:
+def collatz_sequence_iterative(number: int) -> list[int]:
     sequence = [number]
     term = number
     while term != 1:
@@ -9,7 +9,7 @@ def collatz_sequence_iterative(number: int) -> int:
         sequence.append(term)
     return sequence
 
-def collatz_sequence_recursive(number: int) -> int:
+def collatz_sequence_recursive(number: int) -> list[int]:
     if number == 1:
         return [1]
     sequence = [number]
