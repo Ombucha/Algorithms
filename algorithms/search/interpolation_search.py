@@ -1,7 +1,7 @@
 def interpolation_search_iterative(array: list[int], target: int) -> int:
     low = 0
     high = len(array) - 1
-    while ((array[high] != array[low]) and (target >= array[low]) and (target <= array[high])):
+    while array[high] != array[low] and target >= array[low] and target <= array[high]:
         mid = low + ((target - array[low]) * (high - low) // (array[high] - array[low]))
         if array[mid] < target:
             low = mid + 1
