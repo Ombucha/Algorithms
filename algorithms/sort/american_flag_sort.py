@@ -12,13 +12,13 @@ def american_flag_sort(array: list[int], radix: int = None) -> list[int]:
             value = get_radix_value(array[index], digit, radix)
             counts[value] += 1
         offsets = [0 for _ in range(radix)]
-        sum = 0
+        total = 0
         for index in range(radix):
-            offsets[index] = sum
-            sum += counts[index]
+            offsets[index] = total
+            total += counts[index]
         return offsets
 
-    def swap(array: list[int], offsets, start: int, end: int, digit: int, radix: int) -> None:
+    def swap(array: list[int], offsets, start: int, digit: int, radix: int) -> None:
         index = start
         next_free = copy.copy(offsets)
         block = 0
@@ -34,18 +34,18 @@ def american_flag_sort(array: list[int], radix: int = None) -> list[int]:
             array[index], array[swap_to] = array[swap_to], array[index]
             next_free[value] += 1
 
-    def american_flag_sort_helper(array: list[int], start: int, end: int, digit: int, radix: int) -> None:
+    def helper(array: list[int], start: int, end: int, digit: int, radix: int) -> None:
         offsets = compute_offsets(array, start, end, digit, radix)
-        swap(array, offsets, start, end, digit, radix)
+        swap(array, offsets, start, digit, radix)
         if digit == 0:
             return
         for index in range(len(offsets) - 1):
-            american_flag_sort_helper(array, offsets[index], offsets[index + 1], digit - 1, radix)
+            helper(array, offsets[index], offsets[index + 1], digit - 1, radix)
 
     if radix is None:
         radix = len(array)
     _array = copy.copy(array)
     maximum_value = max(_array)
     maximum_digit = int(math.floor(math.log(maximum_value, radix)))
-    american_flag_sort_helper(_array, 0, len(_array), maximum_digit, radix)
+    helper(_array, 0, len(_array), maximum_digit, radix)
     return _array
