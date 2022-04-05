@@ -1,6 +1,8 @@
 import copy
 
-def partition(array: list[float], low: int, high: int) -> int:
+def partition(array: list[float], low: int = 0, high: int = None) -> int:
+    if high is None:
+        high = len(array) - 1
     pivot = array[high]
     _pivot = low - 1
     for index in range(low, high):
