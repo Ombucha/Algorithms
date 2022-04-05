@@ -1,7 +1,9 @@
 import copy
 import math
 
-import insertion_sort, heapsort, quicksort
+import insertion_sort
+import heapsort
+import quicksort
 
 def introsort(array: list[float], maximum_depth: int = None) -> list[float]:
     if maximum_depth is None:
