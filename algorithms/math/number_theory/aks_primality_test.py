@@ -12,8 +12,12 @@ def aks_primality_test(number: int) -> bool:
 
     coefficients = calculate_coefficients(number)
     coefficients[0] = coefficients[0] + 1
-    coefficients[n] = coefficients[number] - 1
+    coefficients[number] = coefficients[number] - 1
     index = number
     while index > -1 and coefficients[index] % number == 0:
         index -= 1
-    return True if index < 0 else False
+    if index < 0:
+        boolean = True
+    else:
+        boolean = False
+    return boolean
