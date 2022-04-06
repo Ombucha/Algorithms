@@ -1,4 +1,6 @@
 def fibonacci_sequence_iterative(number: int) -> list[int]:
+    if number == 0:
+        return [0]
     sequence = [0, 1]
     index = 2
     while index <= number:
@@ -8,6 +10,8 @@ def fibonacci_sequence_iterative(number: int) -> list[int]:
     return sequence
 
 def fibonacci_sequence_recursive(number: int) -> list[int]:
+    if number == 0:
+        return [0]
     if number == 1:
         return [0, 1]
     sequence = fibonacci_sequence_recursive(number - 1)
