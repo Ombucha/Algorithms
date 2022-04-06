@@ -16,8 +16,5 @@ def aks_primality_test(number: int) -> bool:
     index = number
     while index > -1 and coefficients[index] % number == 0:
         index -= 1
-    if index < 0:
-        boolean = True
-    else:
-        boolean = False
+    boolean = index < 0
     return boolean
