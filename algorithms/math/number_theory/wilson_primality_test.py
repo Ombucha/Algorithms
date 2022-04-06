@@ -1,6 +1,6 @@
 import factorial
 
-def wilson_primality_test(number: int) -> int:
+def wilson_primality_test(number: int) -> bool:
     if number in (0, 1, 4):
         return False
     if number in (2, 3):
