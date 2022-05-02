@@ -1,7 +1,7 @@
 import networkx
 
 def breadth_first_search(graph: networkx.Graph, root: str | float) -> networkx.Graph:
-    tree = networkx.DiGraph()
+    tree = networkx.Graph()
     explored = []
     queue = [root]
     while len(queue) > 0:
