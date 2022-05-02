@@ -1,50 +1,19 @@
 import math
-import heapq
-import typing
+import networkx
 
-from collections import defaultdict
-
-import networkx as nx
-
-def dijkstra_algorithm(graph: nx.Graph, src: typing.Any, target: typing.Any) -> list:
-    print(graph.nodes)
-    assert src in graph.nodes, "Source Is Not In Graph"
-    assert target in graph.nodes, "Target Is Not In Graph"
-
-    for (vertex_1, vertex_2, weight) in graph.edges.data("weight"):
-        assert weight is not None, "Edge Weight Cannot Be None"
-        assert 0 <= int(weight), "Dijkstra Cannot Handle Negative Weights"
-
-    seen = defaultdict(bool)
-    dist = defaultdict(lambda: math.inf)
-    parent = defaultdict(lambda: -1)
-
-    dist[src] = 0
-    pqueue = [(dist[src], src)]
-
-    while len(pqueue) > 0:
-        curr_dist, curr_node = heapq.heappop(pqueue)
-
-        if seen[curr_node]:
-            continue
-        seen[curr_node] = True
-
-        if curr_node == target:
-            break
-
-        for neighbor, _info in graph.adj[curr_node].items():
-            weight = _info["weight"]
-            if dist[neighbor] > curr_dist + weight:
-                dist[neighbor] = dist[curr_node] + weight
-                parent[neighbor] = curr_node
-                heapq.heappush(pqueue, (dist[neighbor], neighbor))
-
-    assert dist[target] != math.inf, "No Path from Source to Target"
-
-    path = []
-    curr_node = target
-    while parent[curr_node] != -1:
-        path.append(curr_node)
-        curr_node = parent[curr_node]
-    path.append(src)
-    return path[::-1]
+def dijkstra_algorithm(graph: networkx.Graph, root: str | float) -> networkx.Graph:
+    tree = networkx.Graph()
+    vertices = set(graph.nodes)
+    distances = {vertex: math.inf for vertex in vertices}
+    distances[root] = 0
+    explored = set()
+    while explored != vertices:
+        vertex = min({node: distances[node] for node in vertices.difference(explored)}, key = distances.get)
+        explored.add(vertex)
+        for neighbour in graph.neighbors(vertex):
+            weight = graph.get_edge_data(vertex, neighbour)["weight"]
+            new_distance = distances[vertex] + weight
+            if distances[neighbour] > new_distance:
+                distances[neighbour] = new_distance
+                tree.add_edge(vertex, neighbour, weight = weight)
+    return tree
