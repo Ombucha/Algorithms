@@ -6,7 +6,7 @@ from collections import defaultdict
 
 import networkx as nx
 
-def dijkstra(graph: nx.Graph, src: typing.Any, target: typing.Any) -> list:
+def dijkstra_algorithm(graph: nx.Graph, src: typing.Any, target: typing.Any) -> list:
     print(graph.nodes)
     assert src in graph.nodes, "Source Is Not In Graph"
     assert target in graph.nodes, "Target Is Not In Graph"

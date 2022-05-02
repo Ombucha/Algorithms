@@ -1,6 +1,6 @@
 import pytest
 import networkx as nx
-from algorithms.graphs.shortest_path.dijkstra import dijkstra
+from algorithms.graphs.dijkstra_algorithm import dijkstra_algorithm
 
 
 def generate_sample_graph():
@@ -44,19 +44,19 @@ def generate_sample_graph():
 
 def test_path_exists():
     graph = generate_sample_graph()
-    assert dijkstra(graph, 6, 3) == [6, 5, 4, 3]
+    assert dijkstra_algorithm(graph, 6, 3) == [6, 5, 4, 3]
 
 
 def test_src_not_in_graph():
     graph = generate_sample_graph()
     with pytest.raises(Exception, match="Source Is Not In Graph"):
-        dijkstra(graph, 10, 3)
+        dijkstra_algorithm(graph, 10, 3)
 
 
 def test_target_not_in_graph():
     graph = generate_sample_graph()
     with pytest.raises(Exception, match="Target Is Not In Graph"):
-        dijkstra(graph, 6, 10)
+        dijkstra_algorithm(graph, 6, 10)
 
 
 def test_negative_weights():
@@ -65,7 +65,7 @@ def test_negative_weights():
     graph.add_weighted_edges_from([(1, 2, -10)])
 
     with pytest.raises(Exception, match="Dijkstra Cannot Handle Negative Weights"):
-        dijkstra(graph, 6, 3)
+        dijkstra_algorithm(graph, 6, 3)
 
 
 def test_weights_does_not_exists():
@@ -74,7 +74,7 @@ def test_weights_does_not_exists():
     graph.add_edge(1, 2)
 
     with pytest.raises(Exception, match="Edge Weight Cannot Be None"):
-        dijkstra(graph, 6, 3)
+        dijkstra_algorithm(graph, 6, 3)
 
 
 def test_no_path():
@@ -84,4 +84,4 @@ def test_no_path():
     graph.remove_edge(6, 5)
 
     with pytest.raises(Exception, match="No Path from Source to Target"):
-        dijkstra(graph, 6, 3)
+        dijkstra_algorithm(graph, 6, 3)
