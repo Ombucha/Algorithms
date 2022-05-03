@@ -2,10 +2,10 @@ import typing
 
 class Activity:
 
-    def __init__(self, start_time: float, finish_time: float, weight: float) -> None:
+    def __init__(self, start_time: float, finish_time: float, profit: float) -> None:
         self.start_time = start_time
         self.finish_time = finish_time
-        self.weight = weight
+        self.profit = profit
 
     def __iter__(self) -> typing.Iterator[float]:
         for item in (self.start_time, self.finish_time):
@@ -25,7 +25,7 @@ def maximum_profit(activities: list[Activity], index: int = None) -> float:
         index = len(activities) - 1
     if index == 0:
         return 0
-    profit = max(maximum_profit(activities, index - 1), activities[index].weight + maximum_profit(activities, previous(activities, index)))
+    profit = max(maximum_profit(activities, index - 1), activities[index].profit + maximum_profit(activities, previous(activities, index)))
     return profit
 
 def maximum_profit_memoised(activities: list[Activity], index: int = None) -> float:
@@ -36,7 +36,7 @@ def maximum_profit_memoised(activities: list[Activity], index: int = None) -> fl
         return 0
     if profits[index]:
         return profits[index]
-    profits[index] = max(maximum_profit_memoised(activities, index - 1), activities[index].weight + maximum_profit_memoised(activities, previous(activities, index)))
+    profits[index] = max(maximum_profit_memoised(activities, index - 1), activities[index].profit + maximum_profit_memoised(activities, previous(activities, index)))
     return profits[index]
 
 def maximum_profit_dynamic(activities: list[Activity]) -> float:
@@ -44,10 +44,10 @@ def maximum_profit_dynamic(activities: list[Activity]) -> float:
     profits[0] = 0
     for index, element in enumerate(activities):
         if index > 0:
-            profits[index] = max(profits[index - 1], element.weight + profits[previous(activities, index)])
+            profits[index] = max(profits[index - 1], element.profit + profits[previous(activities, index)])
     return profits[-1]
 
-def weighted_activity_selection(activities: list[Activity]):
+def weighted_activity_selection(activities: list[Activity]) -> set[Activity]:
     selected = set()
     index = len(activities) - 1
     while index > 0:

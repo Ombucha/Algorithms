@@ -11,7 +11,7 @@ class Activity:
         for item in (self.start_time, self.finish_time):
             yield item
 
-def activity_selection(activities: list[Activity]) -> list[Activity]:
+def activity_selection(activities: list[Activity]) -> set[Activity]:
     _activities = copy.copy(activities)
     _activities.sort(key = lambda activity: activity.finish_time)
     selected = {_activities[0]}
