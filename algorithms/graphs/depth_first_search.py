@@ -1,6 +1,7 @@
+import typing
 import networkx
 
-def depth_first_search(graph: networkx.Graph, root: str | float) -> networkx.Graph:
+def depth_first_search(graph: networkx.Graph, root: typing.Any) -> networkx.Graph:
     tree = networkx.Graph()
     explored = []
     stack = [root]

@@ -1,6 +1,7 @@
+import typing
 import networkx
 
-def prim_algorithm(graph: networkx.Graph, root: str | float) -> networkx.Graph:
+def prim_algorithm(graph: networkx.Graph, root: typing.Any) -> networkx.Graph:
     tree = networkx.Graph()
     vertices = set(graph.nodes)
     explored = {root}
