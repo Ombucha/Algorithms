@@ -4,7 +4,7 @@ import math
 def merge_sort_iterative(array: list[float]) -> list[float]:
 
     def merge(array, left, middle, right):
-        _array = copy.copy(array)
+        _array = copy.deepcopy(array)
         value = middle - left + 1
         _value = right - middle
         _left = [0] * value
@@ -32,7 +32,7 @@ def merge_sort_iterative(array: list[float]) -> list[float]:
             __index += 1
         return _array
 
-    _array = copy.copy(array)
+    _array = copy.deepcopy(array)
     width = 1
     length = len(_array)
     while width < length:

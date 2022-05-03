@@ -1,7 +1,7 @@
 import copy
 
 def odd_even_sort(array: list[float]):
-    _array = copy.copy(array)
+    _array = copy.deepcopy(array)
     is_sorted = False
     while not is_sorted:
         is_sorted = True

@@ -1,7 +1,7 @@
 import copy
 
 def gnome_sort(array: list[float]) -> list[float]:
-    _array = copy.copy(array)
+    _array = copy.deepcopy(array)
     position = 0
     while position < len(_array):
         if position == 0 or _array[position] >= _array[position - 1]:

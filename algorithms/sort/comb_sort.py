@@ -3,7 +3,7 @@ import copy
 def comb_sort(array: list[float], shrink: float = 1.3) -> list[float]:
     length = len(array)
     _gap = length
-    _array = copy.copy(array)
+    _array = copy.deepcopy(array)
     is_sorted = False
     while not is_sorted:
         _gap /= shrink

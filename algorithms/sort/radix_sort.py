@@ -18,7 +18,7 @@ def counting_sort(array: list[float], exponent: int) -> list[float]:
     return output
 
 def radix_sort(array: list[float]) -> list[float]:
-    _array = copy.copy(array)
+    _array = copy.deepcopy(array)
     maximum = max(_array)
     exponent = 1
     while maximum / exponent > 1:

@@ -1,6 +1,6 @@
 import pytest
 import networkx as nx
-from algorithms.graphs.dijkstra_algorithm import dijkstra_algorithm
+from algorithms.graphs.shortest_paths.dijkstra_algorithm import dijkstra_algorithm
 
 
 def generate_sample_graph():

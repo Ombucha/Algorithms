@@ -1,7 +1,7 @@
 import copy
 
 def selection_sort_iterative(array: list[float]) -> list[float]:
-    _array = copy.copy(array)
+    _array = copy.deepcopy(array)
     for index, _ in enumerate(_array):
         minimum = index
         for _index in range(index + 1, len(_array)):
@@ -20,7 +20,7 @@ def selection_sort_recursive(array: list[float], length: int = None, index: int 
             return left
         return minimum
 
-    _array = copy.copy(array)
+    _array = copy.deepcopy(array)
     if length is None:
         length = len(_array)
     if index == length:

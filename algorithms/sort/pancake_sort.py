@@ -16,7 +16,7 @@ def pancake_sort(array: list[float]) -> list[float]:
                 index = _index
         return index
 
-    _array = copy.copy(array)
+    _array = copy.deepcopy(array)
     length = len(_array)
     while length > 1:
         maximum = maximum_index(_array, length)

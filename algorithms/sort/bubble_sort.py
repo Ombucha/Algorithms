@@ -1,7 +1,7 @@
 import copy
 
 def bubble_sort_iterative(array: list[float]) -> list[float]:
-    _array = copy.copy(array)
+    _array = copy.deepcopy(array)
     length = len(_array)
     swapped = True
     while swapped:
@@ -13,7 +13,7 @@ def bubble_sort_iterative(array: list[float]) -> list[float]:
     return _array
 
 def bubble_sort_recursive(array: list[float], length: int = None) -> list[float]:
-    _array = copy.copy(array)
+    _array = copy.deepcopy(array)
     if length is None:
         length = len(_array)
     if length == 1:

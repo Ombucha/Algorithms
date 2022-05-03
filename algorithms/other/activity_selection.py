@@ -12,7 +12,7 @@ class Activity:
             yield item
 
 def activity_selection(activities: list[Activity]) -> set[Activity]:
-    _activities = copy.copy(activities)
+    _activities = copy.deepcopy(activities)
     _activities.sort(key = lambda activity: activity.finish_time)
     selected = {_activities[0]}
     latest = _activities[0].finish_time

@@ -1,7 +1,7 @@
 import copy
 
 def cycle_sort(array: list[float]) -> list[float]:
-    _array = copy.copy(array)
+    _array = copy.deepcopy(array)
     for index in range(0, len(_array) - 1):
         item = _array[index]
         position = index

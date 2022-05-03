@@ -1,7 +1,7 @@
 import copy
 
 def cocktail_shaker_sort(array: list[float]) -> list[float]:
-    _array = copy.copy(array)
+    _array = copy.deepcopy(array)
     swapped = True
     while swapped:
         swapped = False

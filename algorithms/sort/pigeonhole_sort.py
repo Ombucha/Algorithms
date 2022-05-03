@@ -1,7 +1,7 @@
 import copy
 
 def pigeonhole_sort(array: list[float]) -> list[float]:
-    _array = copy.copy(array)
+    _array = copy.deepcopy(array)
     base = min(key for key in _array)
     size = max(key for key in _array) - base + 1
     pigeonholes = [[] for _ in range(size)]

@@ -15,7 +15,7 @@ def partition(array: list[float], low: int = 0, high: int = None) -> int:
 def quicksort_iterative(array: list[float], low: int = 0, high: int = None) -> list[float]:
     if high is None:
         high = len(array) - 1
-    _array = copy.copy(array)
+    _array = copy.deepcopy(array)
     size = high - low + 1
     stack = [0] * (size)
     top = -1
@@ -42,7 +42,7 @@ def quicksort_iterative(array: list[float], low: int = 0, high: int = None) -> l
     return _array
 
 def quicksort_recursive(array: list[float], low: int = 0, high: int = None) -> list[float]:
-    _array = copy.copy(array)
+    _array = copy.deepcopy(array)
     if high is None:
         high = len(array) - 1
     if low < high:

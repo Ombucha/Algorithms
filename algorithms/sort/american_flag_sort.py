@@ -20,7 +20,7 @@ def american_flag_sort(array: list[int], radix: int = None) -> list[int]:
 
     def swap(array: list[int], offsets, start: int, digit: int, radix: int) -> None:
         index = start
-        next_free = copy.copy(offsets)
+        next_free = copy.deepcopy(offsets)
         block = 0
         while block < radix - 1:
             if index >= start + offsets[block + 1]:
@@ -44,7 +44,7 @@ def american_flag_sort(array: list[int], radix: int = None) -> list[int]:
 
     if radix is None:
         radix = len(array)
-    _array = copy.copy(array)
+    _array = copy.deepcopy(array)
     maximum_value = max(_array)
     maximum_digit = int(math.floor(math.log(maximum_value, radix)))
     helper(_array, 0, len(_array), maximum_digit, radix)

@@ -1,7 +1,7 @@
 import copy
 
 def stooge_sort(array: list[float], left: int = 0, right: int = None) -> list[float]:
-    _array = copy.copy(array)
+    _array = copy.deepcopy(array)
     if right is None:
         right = len(_array) - 1
     if _array[left] > _array[right]:

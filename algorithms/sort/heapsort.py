@@ -14,7 +14,7 @@ def heapsort(array: list[float]) -> list[float]:
             array[index], array[largest] = array[largest], array[index]
             heapify(array, length, largest)
 
-    _array = copy.copy(array)
+    _array = copy.deepcopy(array)
     length = len(_array)
     for index in range(length // 2 - 1, -1, -1):
         heapify(_array, length, index)

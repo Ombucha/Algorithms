@@ -8,7 +8,7 @@ import quicksort
 def introsort(array: list[float], maximum_depth: int = None) -> list[float]:
     if maximum_depth is None:
         maximum_depth = math.floor(math.log(len(array), 2)) * 2
-    _array = copy.copy(array)
+    _array = copy.deepcopy(array)
     length = len(_array)
     if length < 16:
         _array = insertion_sort.insertion_sort_iterative(_array)

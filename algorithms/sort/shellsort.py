@@ -1,7 +1,7 @@
 import copy
 
 def shellsort(array: list[float]) -> list[float]:
-    _array = copy.copy(array)
+    _array = copy.deepcopy(array)
     gaps = [701, 301, 132, 57, 23, 10, 4, 1]
     for gap in gaps:
         for offset in range(gap):

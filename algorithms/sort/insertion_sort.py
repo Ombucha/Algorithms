@@ -1,7 +1,7 @@
 import copy
 
 def insertion_sort_iterative(array: list[float]) -> list[float]:
-    _array = copy.copy(array)
+    _array = copy.deepcopy(array)
     for index, key in enumerate(_array):
         _index = index - 1
         while _index > -1 and _array[_index] > key:
@@ -11,7 +11,7 @@ def insertion_sort_iterative(array: list[float]) -> list[float]:
     return _array
 
 def insertion_sort_recursive(array: list[float], length: int = None) -> list[float]:
-    _array = copy.copy(array)
+    _array = copy.deepcopy(array)
     if length is None:
         length = len(_array)
     if length == 1:

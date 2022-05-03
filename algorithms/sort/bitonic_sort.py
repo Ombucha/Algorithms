@@ -8,7 +8,7 @@ def bitonic_sort_recursive(array: list[float], low: int = 0, length: int = None,
             array[left], array[right] = array[right], array[left]
 
     def merge(array: list[float], low: int, length: int, direction: typing.Literal[0, 1]) -> list[float]:
-        _array = copy.copy(array)
+        _array = copy.deepcopy(array)
         if length > 1:
             _length = length // 2
             for index in range(low , low + _length):
@@ -19,7 +19,7 @@ def bitonic_sort_recursive(array: list[float], low: int = 0, length: int = None,
 
     if length is None:
         length = len(array)
-    _array = copy.copy(array)
+    _array = copy.deepcopy(array)
     if length > 1:
         _length = length // 2
         _array = bitonic_sort_recursive(_array, low, _length, 1)
@@ -28,7 +28,7 @@ def bitonic_sort_recursive(array: list[float], low: int = 0, length: int = None,
     return _array
 
 def bitonic_sort_iterative(array: list[float]) -> list[float]:
-    _array = copy.copy(array)
+    _array = copy.deepcopy(array)
     length = len(_array) - 1
     index = 2
     while index <= length:

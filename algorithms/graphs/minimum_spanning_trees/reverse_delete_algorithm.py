@@ -2,7 +2,7 @@ import copy
 import networkx
 
 def reverse_delete_algorithm(graph: networkx.Graph) -> networkx.Graph:
-    tree = copy.copy(graph)
+    tree = copy.deepcopy(graph)
     edges = {edge: graph.get_edge_data(edge[0], edge[1])["weight"] for edge in graph.edges}
     edges = sorted(edges, key = edges.get)
     index = 0
