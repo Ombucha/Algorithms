@@ -7,6 +7,6 @@ def kruskal_algorithm(graph: networkx.Graph) -> networkx.Graph:
     while len(edges) > 0 and tree.number_of_nodes() != graph.nodes:
         edge = min(edges, key = edges.get)
         edges.pop(edge)
-        if networkx.has_path(graph, edge[0], edge[1]):
+        if not networkx.has_path(tree, edge[0], edge[1]):
             tree.add_edge(edge[0], edge[1])
     return tree
