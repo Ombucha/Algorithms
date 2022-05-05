@@ -5,10 +5,10 @@ import networkx
 
 class WeightedGraph(networkx.Graph):
 
-    def add_edge(self, u_of_edge: typing.Any, v_of_edge: typing.Any, weight: float, **attr):
+    def add_edge(self, u_of_edge: typing.Any, v_of_edge: typing.Any, weight: float, **attr) -> None:
         return super().add_edge(u_of_edge, v_of_edge, weight = weight, **attr)
 
-    def add_edges_from(self, ebunch_to_add: collections.abc.Container[tuple[typing.Any, typing.Any, dict]], **attr):
+    def add_edges_from(self, ebunch_to_add: collections.abc.Container[tuple[typing.Any, typing.Any, dict]], **attr) -> None:
         ebunch_to_add = list(ebunch_to_add)
         if not all(len(element) == 3 and "weight" in element[2].keys() for element in ebunch_to_add):
             raise ValueError("all edges need to have a weight")
