@@ -6,7 +6,7 @@ def depth_first_search(graph: networkx.Graph, root: typing.Any) -> networkx.Grap
     explored = []
     stack = [root]
     while len(stack) > 0:
-        vertex = stack.pop(-1)
+        vertex = stack.pop()
         explored.append(vertex)
         neighbours = list(graph.neighbors(vertex))
         vertices = [node for node in neighbours if node not in explored + stack]
