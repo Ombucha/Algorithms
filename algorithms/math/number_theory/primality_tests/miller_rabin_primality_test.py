@@ -12,7 +12,7 @@ def miller_rabin_primality_test(number: int, accuracy: int = None) -> bool:
         composite = True
         integer = random.randint(2, number - 2)
         _integer = (integer ** coefficient) % number
-        if _integer == 1 or _integer == number - 1:
+        if _integer in (1, number - 1):
             composite = False
         for _ in range(power):
             _integer = (_integer ** 2) % number
