@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import typing
 
 def linear_search_iterative(array: list, target: typing.Any) -> int | None:

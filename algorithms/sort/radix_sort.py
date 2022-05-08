@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import copy
 
 def counting_sort(array: list[float], exponent: int) -> list[float]:

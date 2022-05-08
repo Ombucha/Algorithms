@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 def trial_division(number: int) -> list[int]:
     factors = []
     factor = 2

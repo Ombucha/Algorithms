@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 def fibonacci_sequence_iterative(number: int) -> list[int]:
     if number == 0:
         return [0]

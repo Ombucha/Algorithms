@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 def binary_gcd_algorithm(number_1: int, number_2: int) -> int:
     if number_1 == 0:
         return number_2

@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import math
 
 def jump_search(array: list[float], target: float) -> int:

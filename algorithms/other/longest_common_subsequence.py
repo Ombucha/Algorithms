@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 def maximum_length_recursive(array_1: list, array_2: list, index_1: int = None, index_2: int = None) -> list:
     if index_1 is None:
         index_1 = len(array_1)

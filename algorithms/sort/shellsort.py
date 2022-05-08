@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import copy
 
 def shellsort(array: list[float]) -> list[float]:

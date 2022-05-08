@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 def counting_sort(array: list[int], number: int = None) -> list[int]:
     if number is None:
         number = len(array)

@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 def interpolation_search_iterative(array: list[int], target: int) -> int:
     low = 0
     high = len(array) - 1

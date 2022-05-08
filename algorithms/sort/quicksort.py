@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import copy
 
 def partition(array: list[float], low: int = 0, high: int = None) -> int:

@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import copy
 
 def comb_sort(array: list[float], shrink: float = 1.3) -> list[float]:

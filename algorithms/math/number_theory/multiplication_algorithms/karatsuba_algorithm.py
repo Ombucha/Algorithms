@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 def karatsuba_algorithm(number_1: int, number_2: int) -> int:
     if len(str(number_1)) == 1 or len(str(number_2)) == 1:
         return number_1 * number_2

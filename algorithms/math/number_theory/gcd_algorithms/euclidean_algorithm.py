@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 def euclidean_algorithm_iterative(number_1: int, number_2: int) -> int:
     while number_1 != number_2:
         if number_1 > number_2:

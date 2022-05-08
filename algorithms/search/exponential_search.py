@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import binary_search
 
 def exponential_search(array: list[float], target: float) -> int:

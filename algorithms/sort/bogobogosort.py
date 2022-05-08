@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import random
 
 def bogobogosort(array: list[float]) -> list[float]:

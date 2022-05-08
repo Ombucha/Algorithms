@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import sympy
 
 def ugly_sequence_iterative(number: int) -> list[int]:

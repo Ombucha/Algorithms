@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 def aks_primality_test(number: int) -> bool:
 
     def calculate_coefficients(number: int) -> list[int]:

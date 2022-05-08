@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import copy
 
 def gnome_sort(array: list[float]) -> list[float]:

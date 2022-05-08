@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 def bucket_sort(array: list[float], number: int = None) -> list[float]:
 
     def next_sort(array: list[float]) -> list[float]:

@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 def fibonacci_search(array: list[float], target: float):
     length = len(array)
     __number = 0

@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import random
 
 def fermat_primality_test(number: int, accuracy: int = None) -> bool:

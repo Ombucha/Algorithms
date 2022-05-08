@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import math
 
 def euler_totient_function(number: int) -> int:

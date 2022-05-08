@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import math
 
 def binary_search_recursive(array: list[float], target: float, low: int = 0, high: int = None) -> int | None:

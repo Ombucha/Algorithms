@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 def recaman_sequence_iterative(number: int) -> int:
     if number == 0:
         return [0]

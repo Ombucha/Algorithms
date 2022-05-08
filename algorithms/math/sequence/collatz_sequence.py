@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 def collatz_sequence_iterative(number: int) -> list[int]:
     sequence = [number]
     term = number

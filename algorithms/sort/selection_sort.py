@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import copy
 
 def selection_sort_iterative(array: list[float]) -> list[float]:

@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import math
 
 def fermat_factorisation(number: int) -> int:

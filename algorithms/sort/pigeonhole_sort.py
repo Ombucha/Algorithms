@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import copy
 
 def pigeonhole_sort(array: list[float]) -> list[float]:

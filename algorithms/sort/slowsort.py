@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import copy
 
 def slowsort(array: list[float], left: int = 0, right: int = None) -> list[float]:

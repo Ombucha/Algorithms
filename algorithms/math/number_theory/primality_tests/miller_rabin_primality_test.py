@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import random
 
 def miller_rabin_primality_test(number: int, accuracy: int = None) -> bool:

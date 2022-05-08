@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 def bead_sort(array: list[int]) -> list[int]:
     output = []
     transposed_array = [0] * max(array)
