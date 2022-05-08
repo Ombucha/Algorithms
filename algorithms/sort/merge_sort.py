@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import copy
-import math
+import sympy
 
 def merge_sort_iterative(array: list[float]) -> list[float]:
 
@@ -61,7 +61,7 @@ def merge_sort_recursive(array: list[float]) -> list[float]:
     length = len(array)
     if length == 1:
         return array
-    left_subarray = merge_sort_recursive(array[:math.floor(length / 2)])
-    right_subarray = merge_sort_recursive(array[math.floor(length / 2):])
+    left_subarray = merge_sort_recursive(array[:sympy.floor(length / 2)])
+    right_subarray = merge_sort_recursive(array[sympy.floor(length / 2):])
     _array = merge(left_subarray, right_subarray)
     return _array

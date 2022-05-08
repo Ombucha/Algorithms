@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import copy
-import math
+import sympy
 
 import insertion_sort
 import heapsort
@@ -9,7 +9,7 @@ import quicksort
 
 def introsort(array: list[float], maximum_depth: int = None) -> list[float]:
     if maximum_depth is None:
-        maximum_depth = math.floor(math.log(len(array), 2)) * 2
+        maximum_depth = sympy.floor(sympy.log(len(array), 2)) * 2
     _array = copy.deepcopy(array)
     length = len(_array)
     if length < 16:

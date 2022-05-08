@@ -1,12 +1,12 @@
 from __future__ import annotations
 
-import math
+import sympy
 
 def fermat_factorisation(number: int) -> int:
-    _number = math.ceil(math.sqrt(number))
+    _number = sympy.ceiling(sympy.sqrt(number))
     __number = _number ** 2 - number
-    while math.sqrt(__number) % 1 != 0:
+    while sympy.sqrt(__number) % 1 != 0:
         _number += 1
         __number = _number ** 2 - number
-    factors = (int(_number - math.sqrt(__number)), int(_number + math.sqrt(__number)))
+    factors = (int(_number - sympy.sqrt(__number)), int(_number + sympy.sqrt(__number)))
     return factors

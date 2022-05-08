@@ -1,14 +1,14 @@
 from __future__ import annotations
 
-import math
+import sympy
 
 def jump_search(array: list[float], target: float) -> int:
     length = len(array)
     index = 0
-    _index = math.floor(math.sqrt(length))
+    _index = sympy.floor(sympy.sqrt(length))
     while array[min(_index, length) - 1] < target:
         index = _index
-        _index += math.floor(math.sqrt(length))
+        _index += sympy.floor(sympy.sqrt(length))
         if index >= length:
             return None
     while array[index] < target:

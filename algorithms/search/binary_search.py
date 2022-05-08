@@ -1,13 +1,13 @@
 from __future__ import annotations
 
-import math
+import sympy
 
 def binary_search_recursive(array: list[float], target: float, low: int = 0, high: int = None) -> int | None:
     if high is None:
         high = len(array) - 1
     if low > high:
         return None
-    middle = math.floor((low + high) / 2)
+    middle = sympy.floor((low + high) / 2)
     if array[middle] == target:
         return middle
     if array[middle] < target:
@@ -20,7 +20,7 @@ def binary_search_iterative(array: list[float], target: float) -> int | None:
     if low > high:
         return None
     while low <= high:
-        middle = math.floor((low + high) / 2)
+        middle = sympy.floor((low + high) / 2)
         if array[middle] < target:
             low = middle + 1
         elif array[middle] > target:

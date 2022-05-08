@@ -1,12 +1,12 @@
 from __future__ import annotations
 
 import copy
-import math
+import sympy
 
 def american_flag_sort(array: list[int], radix: int = None) -> list[int]:
 
     def get_radix_value(number: int, digit: int, radix: int) -> int:
-        return int(math.floor(number / radix ** digit)) % radix
+        return int(sympy.floor(number / radix ** digit)) % radix
 
     def compute_offsets(array: list[int], start: int, end: int, digit: int, radix: int) -> list[int]:
         counts = [0 for _ in range(radix)]
@@ -48,6 +48,6 @@ def american_flag_sort(array: list[int], radix: int = None) -> list[int]:
         radix = len(array)
     _array = copy.deepcopy(array)
     maximum_value = max(_array)
-    maximum_digit = int(math.floor(math.log(maximum_value, radix)))
+    maximum_digit = int(sympy.floor(sympy.log(maximum_value, radix)))
     helper(_array, 0, len(_array), maximum_digit, radix)
     return _array
