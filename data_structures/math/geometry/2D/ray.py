@@ -34,7 +34,7 @@ class Ray:
 
     def rotate(self, pivot: Point, angle: float) -> None:
         self.anchor.rotate(pivot, angle)
-        self._director.rotate(pivot, angle)    
+        self._director.rotate(pivot, angle)
 
     def reflect(self, line: Line) -> None:
         self.anchor.reflect(line)

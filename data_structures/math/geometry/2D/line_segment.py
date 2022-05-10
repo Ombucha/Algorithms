@@ -54,7 +54,7 @@ class LineSegment:
 
     def rotate(self, pivot: Point, angle: float) -> None:
         self.point_1.rotate(pivot, angle)
-        self.point_2.rotate(pivot, angle) 
+        self.point_2.rotate(pivot, angle)
 
     def reflect(self, line: Line) -> None:
         self.point_1.reflect(line)

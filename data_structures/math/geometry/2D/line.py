@@ -56,7 +56,7 @@ class Line:
 
     def rotate(self, pivot: Point, angle: float) -> None:
         self._point_1.rotate(pivot, angle)
-        self._point_2.rotate(pivot, angle)    
+        self._point_2.rotate(pivot, angle)
 
     def reflect(self, line: Line) -> None:
         self._point_1.reflect(line)
