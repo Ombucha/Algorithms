@@ -33,7 +33,7 @@ def ford_fulkerson_algorithm(network: Network, source: typing.Any, sink: typing.
 
     def augment(network: networkx.DiGraph, path: list) -> None:
         path = [(path[index], path[index + 1]) for index in range(len(path) - 1)]
-        bottleneck = min([network.get_edge_data(*edge)["capacity"] for edge in path])
+        bottleneck = min((network.get_edge_data(*edge)["capacity"] for edge in path))
         for edge in path:
             if edge in network.edges:
                 network.get_edge_data(*edge)["flow"] += bottleneck

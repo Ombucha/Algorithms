@@ -16,7 +16,8 @@ class Polygon:
     def area(self) -> float:
         length = len(self.points)
         x_coordinates, y_coordinates = [point.x_coordinate for point in self.points], [point.y_coordinate for point in self.points]
-        total = lambda list_1, list_2: sum([list_1[index] * list_2[index + 1] for index in range(length - 1)]) + list_1[length - 1] * list_2[0]
+        def total(list_1: list[float], list_2: list[float]) -> float:
+            return sum((list_1[index] * list_2[index + 1] for index in range(length - 1))) + list_1[length - 1] * list_2[0]
         area = 0.5 * abs(total(x_coordinates, y_coordinates) - total(y_coordinates, x_coordinates))
         return area
 
