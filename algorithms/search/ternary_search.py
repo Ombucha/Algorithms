@@ -19,7 +19,7 @@ def ternary_search_recursive(array: list[float], target: float, low: int = 0, hi
 
 def ternary_search_iterative(array: list[float], target: float, low: int = 0, high: int = None) -> int:
     if high is None:
-        high = len(array) -
+        high = len(array) - 1
     while high >= low:
         one_third = low + (high - low) // 3
         two_thirds = high - (high - low) // 3
